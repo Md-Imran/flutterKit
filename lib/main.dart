@@ -2,19 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:myflutterapp/quoat_card.dart';
 import 'package:myflutterapp/Location.dart';
 import 'package:myflutterapp/home.dart';
+import 'package:myflutterapp/PanelDetails.dart';
+import 'package:myflutterapp/res/data.dart';
 
 import 'Quote.dart';
+import 'dart:typed_data';
+
+import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 void main() {
   runApp(MaterialApp(
-      //   home: Text('Hey Bro'),
-      // home: QuoteList()
-      initialRoute: '/Home',
+    home: PanelDetails(),
+    // home: QuoteList()
+    /*initialRoute: '/Home',
       routes: {
         '/home': (context) => Home(),
         '/location': (context) => ChoseLocation(),
-      }));
+      }*/
+  ));
 }
+
+
+
+
 
 class HomeWithRow extends StatelessWidget {
   @override
@@ -52,7 +62,7 @@ class HomeWithRow extends StatelessWidget {
   }
 }
 
-class HomeWithColumn extends StatelessWidget {
+class HomeWithContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,17 +71,72 @@ class HomeWithColumn extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              color: Colors.blueAccent,
-              child: Text('Container text one '),
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(10),
-            ),
-            Container(
+      body: Container(
+        height: 50,
+        width: 300,
+        child: RaisedButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          onPressed: () {},
+          color: Color(0xff2DE1F4),
+          textColor: Colors.white,
+          child:
+              Text("Video class".toUpperCase(), style: TextStyle(fontSize: 18)),
+        ),
+      ),
+    );
+  }
+}
+
+class HomeWithColumn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        /*appBar: AppBar(
+          title: Text('Home'),
+          centerTitle: true,
+          backgroundColor: Colors.red[600],
+        ),*/
+        backgroundColor: Colors.white,
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                height: 50,
+                width: 300,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  onPressed: () {},
+                  color: Color(0xFF54C5F6),
+                  textColor: Colors.white,
+                  child: Text("Video Class", style: TextStyle(fontSize: 18)),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                height: 50,
+                width: 300,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  onPressed: () {},
+                  color: Color(0xFF54C5F6),
+                  textColor: Colors.white,
+                  child:
+                      Text("Topic wise test", style: TextStyle(fontSize: 18)),
+                ),
+              ),
+
+              /* Container(
               color: Colors.greenAccent,
               child: Text('Container text three '),
               padding: EdgeInsets.all(10),
@@ -91,8 +156,8 @@ class HomeWithColumn extends StatelessWidget {
           style: TextStyle(fontSize: 08),
         ),
         backgroundColor: Colors.redAccent,
-      ),
-    );
+      ),*/
+            ]));
   }
 }
 
@@ -261,7 +326,6 @@ class HomeWithIconButton extends StatelessWidget {
             onPressed: () {
               print('Clicked lolzzzzzzz');
             },
-            icon: Icon(Icons.access_alarms_rounded),
             color: Colors.amber,
           ),
         ));
